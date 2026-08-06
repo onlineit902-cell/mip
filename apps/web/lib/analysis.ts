@@ -6,8 +6,8 @@ import {
   ENGINE_VERSION,
   type Candle,
   type Timeframe,
-} from '@mip/engine';
-import { buildIdea, ideaAlert, type Instrument } from '@mip/shared';
+} from '../vendor/engine/src';
+import { buildIdea, ideaAlert, type Instrument } from '../vendor/shared/src';
 import { getCandles, type Source } from './candles';
 
 export interface OverviewCard {

@@ -4,12 +4,12 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import type { CompositeAnalysis, Timeframe, TimeframeAnalysis, Zone } from '@mip/engine';
-import type { Instrument, TradeIdea } from '@mip/shared';
-import { fmt } from '@mip/shared';
-import type { ChartMarker, ChartPriceLine } from '@/components/CandleChart';
+import type { CompositeAnalysis, Timeframe, TimeframeAnalysis, Zone } from '../../../vendor/engine/src';
+import type { Instrument, TradeIdea } from '../../../vendor/shared/src';
+import { fmt } from '../../../vendor/shared/src';
+import type { ChartMarker, ChartPriceLine } from '../../../components/CandleChart';
 
-const CandleChart = dynamic(() => import('@/components/CandleChart'), {
+const CandleChart = dynamic(() => import('../../../components/CandleChart'), {
   ssr: false,
   loading: () => <div className="skeleton">Loading chart…</div>,
 });

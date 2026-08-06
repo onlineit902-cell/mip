@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { CLASS_LABEL, fmt } from '@mip/shared';
+import { CLASS_LABEL, fmt } from '../vendor/shared/src';
 
 interface Card {
   symbol: string;

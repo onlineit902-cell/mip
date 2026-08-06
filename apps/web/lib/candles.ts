@@ -1,5 +1,5 @@
-import type { Candle } from '@mip/engine';
-import { syntheticCandles, type Instrument } from '@mip/shared';
+import type { Candle } from '../vendor/engine/src';
+import { syntheticCandles, type Instrument } from '../vendor/shared/src';
 
 /**
  * Dev-mode candle provider (spec §5.1 in miniature):

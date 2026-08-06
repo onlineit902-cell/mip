@@ -12,7 +12,7 @@ import {
   type ISeriesApi,
   type UTCTimestamp,
 } from 'lightweight-charts';
-import type { Candle } from '@mip/engine';
+import type { Candle } from '../vendor/engine/src';
 
 export interface ChartMarker {
   time: number; // ms

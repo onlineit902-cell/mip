@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import type { Timeframe } from '@mip/engine';
-import { bySymbol } from '@mip/shared';
-import { buildMarketAnalysis } from '@/lib/analysis';
+import type { Timeframe } from '../../../../vendor/engine/src';
+import { bySymbol } from '../../../../vendor/shared/src';
+import { buildMarketAnalysis } from '../../../../lib/analysis';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
