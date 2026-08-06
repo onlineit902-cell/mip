@@ -1,0 +1,12 @@
+{
+  "name": "@mip/engine",
+  "version": "0.1.0",
+  "description": "Deterministic TA + Smart-Money-Concepts analysis engine",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run"
+  }
+}
