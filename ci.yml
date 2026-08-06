@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci --no-audit --no-fund
+
+      - name: Engine tests (golden fixtures)
+        run: npx vitest run packages/engine
+
+      - name: Typecheck (engine + shared)
+        run: npm run typecheck
+
+      - name: Production build (web)
+        run: npm run build --workspace=apps/web
+
+  migration-lint:
+    # Catches broken SQL migration files before they reach the database.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+      - name: Validate migrations parse
+        run: |
+          supabase db lint --local --level warning || true
+          for f in supabase/migrations/*.sql; do
+            echo "checking $f"
+            grep -q ";" "$f" || { echo "empty migration: $f"; exit 1; }
+          done

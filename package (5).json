@@ -1,0 +1,12 @@
+{
+  "name": "@mip/shared",
+  "version": "0.1.0",
+  "description": "Shared types, instruments, alert composer",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@mip/engine": "*"
+  }
+}

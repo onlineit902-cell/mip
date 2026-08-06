@@ -1,0 +1,13 @@
+node_modules
+.next
+dist
+coverage
+.git
+*.tsbuildinfo
+.env
+.env*.local
+.github
+docs
+supabase
+*.md
+!apps/web/package.json
